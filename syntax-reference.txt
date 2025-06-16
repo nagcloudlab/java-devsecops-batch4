@@ -1,0 +1,137 @@
+
+
+-----------------------------------------------------
+1. project: my_project
+-----------------------------------------------------
+
+
+my_project
+|
+|---- package1 ( .java / .class )
+|
+|
+|---- package2
+|  |
+|  |---- subpackage1
+
+
+-----------------------------------------------------
+2. java file structure (.java)
+-----------------------------------------------------
+
+-----------------------------
+| PublicType.java
+|----------------------------
+|// package declaration (1)
+|// import statements (n)
+|// public Type ( interface | class | enum |annotation ) (1)
+|// default Types (n)
+|-----------------------------
+
+
+-----------------------------------------------------
+3. package declaration
+-----------------------------------------------------
+
+why we need it:
+// to group related types together
+// to avoid name conflicts
+// to control access to types
+
+e.g Account.java 
+module: module1
+project: my_project
+compnay: npci
+type   : com 
+
+syntax:
+--------
+package companytype.companyname.projectname.modulename;
+package com.npci.my_project.module1;
+
+
+
+-----------------------------------------------------
+4. import statements
+-----------------------------------------------------
+
+my_project:
+  - p1 ( A.java , B.java , C.java )
+  - p2 ( D.java , E.java , F.java, C.java )
+
+e.g
+
+package p1;
+
+//import p2.D; 
+import p2.*; 
+
+public class A{
+    p1.B b;
+    p2.C c;
+    D d;
+    E e;
+}
+
+
+
+-----------------------------------------------------
+object's theory
+-----------------------------------------------------
+
+what is an object?
+
+  -> info|data|properties|attributes|fields|variables -> state
+  -> function|method|work|operation  -> behavior
+  -> address|location/reference  -> identity
+
+
+  object = state + behavior + identity ( sbi )
+
+  to create similar objects, we use a template called 'class'
+
+  class ??{
+    state definition: 
+    behavior definition:
+  }
+
+-----------------------------------------------------
+object's concepts
+-----------------------------------------------------
+1. Frontend | Interface | Abstraction
+    why we need it?
+    -> easy to use/learn by dependent
+    -> for loose coupling
+2. Backend | Implementation | Encapsulation
+    why we need it?
+    -> to hide implementation details
+    -> to protect data from external access
+    -> to control access to data
+3. Inheritance
+    why we need it?
+    -> to reuse code
+    -> to create a hierarchy of classes
+4. Polymorphism   ( open for extension, closed for modification )
+    why we need it?
+    -> a object let do same behavior in different ways based on input or context
+5. Composition    
+    why we need it?
+    -> to create complex objects from simpler ones
+    -> to achieve code reuse
+    -> to create a has-a relationship between objects
+
+
+
+-----------------------------------------------------
+6. interface syntax
+-----------------------------------------------------
+
+_________ interface Name [extends] Interface1,Interface {
+[private]    // constant data members (fields)
+[      ]     // methods (abstract by default)
+[protected]
+[public]
+
+           }
+
+-----------------------------------------------------

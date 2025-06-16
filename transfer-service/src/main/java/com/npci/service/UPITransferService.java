@@ -2,7 +2,6 @@ package com.npci.service;
 
 import com.npci.model.Account;
 import com.npci.repository.AccountRepository;
-import com.npci.repository.AccountRepositoryFactory;
 
 /**
  * author: blue-team
@@ -46,8 +45,9 @@ import com.npci.repository.AccountRepositoryFactory;
   */
 
 
-public class UPITransferService {
+public class UPITransferService implements TransferService{
 
+    // HAS-A relationship  i.e composition
      private AccountRepository accountRepository; // Don't create
 
     // dependency injection
