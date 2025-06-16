@@ -1,5 +1,7 @@
 package com.npci;
 
+import com.npci.repository.AccountRepository;
+import com.npci.repository.AccountRepositoryFactory;
 import com.npci.service.UPITransferService;
 
 public class Application {
@@ -9,7 +11,8 @@ public class Application {
         // init / boot phase
         // based on configuration, create the necessary components & assemble them
         System.out.println("----------------------------------");
-        UPITransferService upiTransferService = new UPITransferService();
+        AccountRepository accountRepository = AccountRepositoryFactory.getAccountRepository("nosql");
+        UPITransferService upiTransferService = new UPITransferService(accountRepository);
         System.out.println("----------------------------------");
 
         // run phase

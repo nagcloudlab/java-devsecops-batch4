@@ -6,14 +6,14 @@ import com.npci.model.Account;
  * team : red
  */
 
-public class SqlAccountRepository {
+public class NoSqlAccountRepository implements AccountRepository {
 
-    String url = "jdbc:postgresql://localhost:5432/postgres";
-    String user = "postgres";
-    String password = "postgres";
+    String url = System.getenv("MONGO_DB_URL");
+    String user = System.getenv("MONGO_DB_USER");
+    String password = System.getenv("MONGO_DB_PASSWORD");
 
-    public SqlAccountRepository() {
-        System.out.println("SqlAccountRepository component initialized.");
+    public NoSqlAccountRepository() {
+        System.out.println("NoSqlAccountRepository component initialized.");
     }
 
     public Account loadAccount(String number) {

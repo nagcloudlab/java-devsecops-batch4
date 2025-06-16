@@ -1,21 +1,65 @@
 package com.npci.service;
 
 import com.npci.model.Account;
-import com.npci.repository.SqlAccountRepository;
+import com.npci.repository.AccountRepository;
+import com.npci.repository.AccountRepositoryFactory;
 
 /**
  * author: blue-team
  */
 
+
+/*
+    design issues
+    -------------
+    -> dependent & dependent are tightly coupled
+        => can't extend with new features easily
+    -> unit testing is difficult
+        => dev & big-fix slow down
+    performance issues
+    -------------------
+    -> every time we transfer money, create a new instance of SqlAccountRepository
+        => resource use high , performance low
+    ----------------------------------------------------
+ */
+
+/**
+ *
+ *  why those issues
+ *  -----------------
+ *
+ *      => dependent itself manages its own dependencies
+ *
+ *   Solution to design issues  ( Design Pattern )
+ *   --------------------------
+ *
+ *      => Don't create dependencies inside dependent's home ( class ), use factory  pattern
+ *
+ *
+ *   Solution to performance issues
+ *   -----------------------------
+ *
+ *      => Don't lookup dependencies inside dependent's home ( class ),
+ *         "inject" by third party
+ *         principal => dependency inversion
+ *
+  */
+
+
 public class UPITransferService {
 
-    public UPITransferService() {
+     private AccountRepository accountRepository; // Don't create
+
+    // dependency injection
+    public UPITransferService(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
         System.out.println("UPITransferService component initialized.");
     }
 
     public void transfer(double amount,String source,String target){
         System.out.println("Transfer Initiated");
-        SqlAccountRepository accountRepository=new SqlAccountRepository();
+        // SqlAccountRepository accountRepository=new SqlAccountRepository(); // Dont create
+        // AccountRepository accountRepository= AccountRepositoryFactory.getAccountRepository("sql"); // Dont' lookup
         // load 'source' account d details
         Account sourceAccount=accountRepository.loadAccount(source);
         // load 'taget' account details
