@@ -20,12 +20,12 @@ my_project
 -----------------------------------------------------
 
 -----------------------------
-| PublicType.java
+| PublicTypeName.java
 |----------------------------
-|// package declaration (1)
-|// import statements (n)
-|// public Type ( interface | class | enum |annotation ) (1)
-|// default Types (n)
+|// package declaration (1) - optional
+|// import statements (n) - if required
+|// public Type Name( interface | class | enum |annotation ) (1) -> must
+|// default Types (n) -> optional
 |-----------------------------
 
 
@@ -54,6 +54,10 @@ package com.npci.my_project.module1;
 -----------------------------------------------------
 4. import statements
 -----------------------------------------------------
+
+why we need it:
+// to use types from other packages
+// to avoid fully qualified type
 
 my_project:
   - p1 ( A.java , B.java , C.java )
@@ -121,6 +125,12 @@ object's concepts
     -> to create a has-a relationship between objects
 
 
+-----------------------------------------------------
+
+1. interface
+2. class
+3. enum
+4. annotation
 
 -----------------------------------------------------
 6. interface syntax
@@ -131,7 +141,133 @@ _________ interface Name [extends] Interface1,Interface {
 [      ]     // methods (abstract by default)
 [protected]
 [public]
-
            }
+
+-----------------------------------------------------
+7. class syntax
+-----------------------------------------------------
+
+
+________  _________ class Name [extends] SuperClass 
+[       ][abstract]            [implements] Interface1,Interface2 {
+[public ][final]     // variables (fields) -> State
+         [srictfp]   // constructors -> Initialization
+                     // methods -> Behavior
+----------------------
+[private]  [static]   // Nested classes/interfaces (optional)
+[       ]
+[protected]          }
+[public]
+
+
+-----------------------------------------------------
+8. enum syntax
+-----------------------------------------------------
+
+- to define a fixed set of constants
+
+
+_________ enum Name [implements] Interface1,Interface2 {
+[private]    // constant data members (fields)
+[      ]     // methods (abstract by default)
+[protected]
+[public]
+           }
+
+
+-----------------------------------------------------
+9. annotation syntax
+-----------------------------------------------------
+
+- to provide metadata about the code
+- to provide additional information to the compiler or runtime or frameworks
+
+_________ @interface Name [extends] Interface1,Interface2 {
+[private]    // constant data members (fields)
+[      ]     // methods (abstract by default)   
+[protected]
+[public]
+           }
+
+-----------------------------------------------------
+10. variables declaration -> to hold data
+-----------------------------------------------------
+
+By Type:
+ 1. values aka primitive types ( predefined types )
+    - int, long, float, double, char, boolean, byte, short
+ 2. reference types aka object types ( user defined types )
+    - class, interface, enum, annotation, array, record
+
+By Scope:
+1. static / class level 
+   - shared by all instances of the class
+   - belongs to the class itself, not to any instance
+2. instance / object level
+    - each instance of the class has its own copy
+    - belongs to the object itself, not to the class
+3. local / method level
+    - temporary variables used within a method
+
+
+  _________ __________ Type varName = value | object's reference;
+  [private]  [static] 
+  [       ]  [final ]
+  [pritected][transient] 
+  [public   ][volatile]
+
+    Local variables
+  --------------------------
+  Nil         [final]
+
+-----------------------------------------------------
+11. methods declaration -> to perform actions
+-----------------------------------------------------
+
+Return Type:
+- void (no return value)
+- primitive types (int, long, float, double, char, boolean, byte, short)
+- reference types (class, interface, enum, annotation, array, record)
+
+
+_________  __________ returnType methodName ( parameterType paramName, ... ) [throws Exception1, Exception2, ...] {
+[private]  [static]                     
+[       ]  [final]          // A,R,L and assignment
+[protected][synchronized]   // conditionals
+[public]   [strictfp]       // loops
+           [abstract]       // invocation of other methods
+           [native]         [return] value | object's reference; 
+                     
+                       }
+
+
+
+-----------------------------------------------------
+12. constructor declaration -> to initialize objects
+-----------------------------------------------------
+
+
+in java , object creation 2 step process
+
+step 1 : dynamic memory allocation on heap => 'new' keyword
+step 2 : initialization of the object => constructor
+
+_________  _________ ClassName ( parameterType paramName, ... ) [throws Exception1, Exception2, ...] {
+[private] 
+[       ] 
+[protected]            // object initialization code
+[public]   
+           
+               }
+
+-----------------------------------------------------               
+Java Naming Conventions
+-----------------------------------------------------
+
+1. keyword -> lowercase
+2. package -> lowercase
+3. Type Names -> PascalCase , A____B____C____
+4. var & method names -> camelCase , ____B____C____
+5. constants -> UPPER_CASE 
 
 -----------------------------------------------------
