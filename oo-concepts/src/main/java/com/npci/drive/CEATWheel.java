@@ -1,13 +1,13 @@
 package com.npci.drive;
 
-public class MRFWheel {
+public class CEATWheel implements Wheel {
 
-    public MRFWheel(){
-        System.out.println("MRF Wheel is created");
+    public CEATWheel(){
+        System.out.println("CEAT Wheel is created");
     }
-
-    public void rotate() {
-        System.out.println("MRF Wheel is rotating");
+    public int rotate(int speed) {
+        System.out.println("CEAT Wheel is rotating");
+        return 3* speed;
     }
 
 }
