@@ -57,9 +57,82 @@ how to implement OO-concepts in Java?
  - getter
 
 
-
 -------------------------------------------------------
 3. Interface
 -------------------------------------------------------
+
+
+why we need interface?
+
+- to define a contract
+- for loose coupling
+- for object abstraction
+
+
+
+-------------------------------------------------------
+4. Inheritance
+-------------------------------------------------------
+
+why we need inheritance?
+
+ - re-use variables and methods from generalized class to specialized class
+
+
+
+
+-------------------------------------------------------------------
+Interface vs Abstract Class
+-------------------------------------------------------------------
+
+simalarities:
+---------------
+
+- both can not be instantiated
+
+differences:
+---------------
+
+interface : can hold constant variables
+abstract class : can hold mutable variables
+
+interface : can not have constructors
+abstract class : can have constructors
+
+interface : can have only abstract methods  ( till java 7 )
+abstract class : can have both abstract and concrete methods
+
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+------------------------------------
+recommended object design in java
+------------------------------------
+
+top/design/api-level => interface  => ( 100% abstraction )
+middle-level => abstract-class => ( partial abstraction )
+bottom/implementation-level => concerete class  => Implementation
+
+
+
+--------------------------------------------------------
+
+Top-Level coding
+------------------
+
+Collection
+    - List
+    - Set
+
+Bottom-Level coding
+---------------------
+
+    - ArrayList
+    - LinkedList
+    ...
+
+
 
 

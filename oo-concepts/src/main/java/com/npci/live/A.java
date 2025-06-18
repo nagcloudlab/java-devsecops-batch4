@@ -1,4 +1,4 @@
 package com.npci.live;
 
-public class A {
+public class A /* extends Animal */{
 }
