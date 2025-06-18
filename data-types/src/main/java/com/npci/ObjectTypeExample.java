@@ -1,5 +1,9 @@
 package com.npci;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 // DRY  - Don't Repeat Yourself
 class Account {
     // variables
@@ -12,6 +16,7 @@ class Account {
     Account(int number) {
         this(number, 0.0); // calling another constructor
     }
+
     Account(int number, double balance) {
         if (number < 0) {
             throw new IllegalArgumentException("Number is negative");
@@ -27,6 +32,7 @@ class Account {
         }
         this.balance += amount;
     }
+
     void withdraw(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
@@ -39,8 +45,17 @@ class Account {
 
 }
 
+
+class AccountsManager {
+    List<Account> accounts = new ArrayList<>();
+
+    void addAccount(Account account) {
+        accounts.add(account);
+    }
+}
+
 public class ObjectTypeExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 //        Account a1 = new Account(); // 32 + 64 = 96
 //        a1.number = 12345;
@@ -54,13 +69,22 @@ public class ObjectTypeExample {
 //        a1=null;
 //        //..
 
-        Account a = new Account(123);
-        Account b = new Account(456, 1000.0);
-        a.deposit(500.0);
-        b.withdraw(500.0);
+//        Account a = new Account(123);
+//        Account b = new Account(456, 1000.0);
+//        a.deposit(500.0);
+//        b.withdraw(500.0);
+//
+//        System.out.println("Account A: Number = " + a.number + ", Balance = " + a.balance);
+//        System.out.println("Account B: Number = " + b.number + ", Balance = " + b.balance);
 
-        System.out.println("Account A: Number = " + a.number + ", Balance = " + a.balance);
-        System.out.println("Account B: Number = " + b.number + ", Balance = " + b.balance);
+
+        AccountsManager am = new AccountsManager();
+
+        for (int i = 0; i < 1000000000; i++) {
+            //TimeUnit.MILLISECONDS.sleep(100);
+            Account acc = new Account(i, i * 100.0); // 96 * 100000000
+            am.addAccount(acc);
+        }
 
     }
 }

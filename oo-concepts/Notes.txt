@@ -1,0 +1,48 @@
+
+
+
+Object's concepts
+-------------------
+
+- abstraction
+- encapsulation
+- polymorphism
+- inheritance
+
+how to implement OO-concepts in Java?
+
+-------------------------------------------------------
+1. using access-modifiers
+-------------------------------------------------------
+
+   - public
+   - private
+   - protected
+   - default
+
+
+ e.g my_project
+ |
+ |
+ |--- package1
+ | |- A.java
+ | |- B.java extends A.java
+ | |- C.java
+ |
+ |--- package2
+ | |- D.java extends A.java
+ | |- E.java
+ |
+
+
+            -------------------------------------------------------------
+            same-package                          |  other-package
+            -------------------------------------------------------------
+            same-class | sub-class |  other-class | sub-class  | other-class
+            -------------------------------------------------------------
+ private   |   yes     |     no     |     no       |    no     |    no
+           |   yes     |     yes    |     yes      |    no     |    no
+ protected |   yes     |     yes    |     yes      |    yes    |    no
+ public    |   yes     |     yes    |     yes      |    yes    |    yes
+
+            -------------------------------------------------------------
