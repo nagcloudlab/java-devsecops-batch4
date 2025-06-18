@@ -1,19 +1,31 @@
 package com.npci.room;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Door {
 
-    Light light = new Light();
-    AC ac = new AC();
+    List<DoorListener> listeners = new ArrayList<>(); // data-structure to hold listeners
+
+    public void addListener(DoorListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeListener(DoorListener listener) {
+        listeners.remove(listener);
+    }
 
     public void open() {
         System.out.println("Door Opened");
-        light.on();
-        ac.on();
+        for (DoorListener listener : listeners) {
+            listener.on(); // notify all listeners
+        }
     }
 
     public void close() {
         System.out.println("Door Closed");
-        light.off();
-        ac.off();
+        for (DoorListener listener : listeners) {
+            listener.off(); // notify all listeners
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.npci.room;
 
-public class AC {
+public class AC implements DoorListener {
 
     public void on() {
         System.out.println("AC ON");
