@@ -3,8 +3,10 @@
 ✅- Java-code-syntax-reference
 ✅- Data-types
 ✅- OO concepts
-- OO principles
+
+- OO principles aka SOLID principles
 - OO design patterns  ( popular ones )
+
 - how to handle exceptions
 - Java collections framework
 - Java functional programming and streams
