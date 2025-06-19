@@ -13,8 +13,6 @@ class FiveHundredHandler implements Handler {
     }
 
     public void handleRequest(double amount) {
-        // e.g., if amount is 1000, then this handler will handle 500
-        // e.g., if amount is 1200, then next handler will be called
     }
 }
 class TwoHundredHandler implements Handler {
@@ -38,7 +36,7 @@ public class Application {
         Handler twoHundredHandler = new TwoHundredHandler();
         // chain-1
         fiveHundredHandler.setNext(twoHundredHandler);
-        
+
         fiveHundredHandler.handleRequest(1000);
 
     }
