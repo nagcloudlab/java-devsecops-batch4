@@ -1,4 +1,4 @@
-package com.npci.singleton;
+package com.npci.creational.singleton;
 
 /**
  * author: Nikhil

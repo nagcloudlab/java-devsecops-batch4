@@ -1,4 +1,4 @@
-package com.npci.factory;
+package com.npci.creational.factory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.npci.chain;
+package com.npci.behavior.chain;
 
 interface Handler {
     void setNext(Handler next);
