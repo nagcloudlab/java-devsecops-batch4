@@ -1,10 +1,12 @@
 package com.npci.model;
 
 
+import java.util.Objects;
+
 /*
 Author : nag
  */
-public class Account implements Comparable<Account> {
+public class Account extends Object implements Comparable<Account> {
 
     private String accountNumber;
     private String accountHolderName;
@@ -30,6 +32,16 @@ public class Account implements Comparable<Account> {
 
     public double getBalance() {
         return balance;
+    }
+
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return Objects.equals(accountNumber, account.accountNumber);
+    }
+
+    public int hashCode() {
+        return Objects.hashCode(accountNumber);
     }
 
     public String toString() {

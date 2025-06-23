@@ -40,6 +40,10 @@ public class ListExampleApplication {
 
         // Sort accounts by holder name ( desc )
 
+        Collections.sort(accounts, new HolderNameComparator());
+        System.out.println("After sorting by holder name:");
+        displayAccounts(accounts);
+
 
     }
 
@@ -73,5 +77,13 @@ class BalanceComparator implements Comparator<Account> {
 //        } else {
 //            return 0; // they are equal
 //        }
+    }
+}
+
+class HolderNameComparator implements Comparator<Account> {
+    public int compare(Account a, Account b) {
+        String nameA = a.getAccountHolderName();
+        String nameB = b.getAccountHolderName();
+        return nameA.compareTo(nameB); // ascending order
     }
 }
