@@ -1,16 +1,9 @@
 package com.npci;
 
+import java.util.Map;
+
 public class Exercise {
     public static void main(String[] args) {
-
-        String csvLine = "A,IT,1000";
-        String[] parts = csvLine.split(",");
-        String empName = parts[0];
-        String empDept = parts[1];
-        double empSalary = Double.parseDouble(parts[2]);
-        System.out.println("Employee Name: " + empName);
-        System.out.println("Employee Department: " + empDept);
-        System.out.println("Employee Salary: " + empSalary);
 
         // Input CSV report
         String[] csvReport = {
@@ -20,6 +13,7 @@ public class Exercise {
                 "D,IT,1100",
                 "E,HR,1300",
         };
+        // note : we dont know department names in advance
 
         // Output the report
         /*
@@ -29,6 +23,26 @@ public class Exercise {
             Finance 1500.0
          */
 
+
+        Map<String, Double> departmentSalaries = new java.util.HashMap<>();
+        for (String csvLine : csvReport) {
+            String[] parts = csvLine.split(",");
+            String empName = parts[0];
+            String empDept = parts[1];
+            double empSalary = Double.parseDouble(parts[2]);
+            if (departmentSalaries.containsKey(empDept)) {
+                double existingSalary = departmentSalaries.get(empDept);
+                departmentSalaries.put(empDept, existingSalary + empSalary);
+            } else {
+                departmentSalaries.put(empDept, empSalary);
+            }
+        }
+        System.out.println("deptName TotalSalary");
+        for (Map.Entry<String, Double> entry : departmentSalaries.entrySet()) {
+            String deptName = entry.getKey();
+            double totalSalary = entry.getValue();
+            System.out.println(deptName + " " + totalSalary);
+        }
 
 
     }
