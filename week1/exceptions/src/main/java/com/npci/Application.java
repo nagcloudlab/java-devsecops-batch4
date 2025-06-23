@@ -1,16 +1,12 @@
 package com.npci;
 
-
 /*
-
-    2 types Throwable
-
+    2 types of
+    - Throwable
         - Exception ( CheckedException )
             - RuntimeException ( UnCheckedException )
         - Error
-
  */
-
 
 class AccountNotFoundException extends RuntimeException {
     private String accountId;

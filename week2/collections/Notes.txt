@@ -1,0 +1,110 @@
+
+
+
+int v=12;
+Account acc=new Account("John Doe", 1000);
+
+------------------------------
+data-structure
+------------------------------
+
+=> memory-layout, for data , to do 'CRUDSS' operations
+
+C -> create
+R -> read
+U -> update
+D -> delete
+S -> search
+S -> sort
+
+-------------------------------------------
+types of data-structure
+-------------------------------------------
+
+1. Linear/Seq data-structure
+   - Array
+   - Linked List
+   - Stack
+   - Queue
+
+2. Non-linear data-structure
+    - Tree -> hierarchical
+    - Graph -> connected
+
+-------------------------------------------
+data-structure
+-------------------------------------------
+
+- Array
+    - fixed size
+    - contiguous memory allocation
+    - index based access
+
+- Linked List
+    - dynamic size
+    - non-contiguous memory allocation
+
+
+-------------------------------------------
+collection
+-------------------------------------------
+
+-> ready-to-use data-structure from java-community
+
+
+-------------------------------------------
+types of collections in java
+-------------------------------------------
+
+1. List
+    -> index based access
+    -> ordered collection
+    -> allows duplicates
+2. Queue
+    -> FIFO (First In First Out)
+    -> no index based access
+    -> allows duplicates
+3. Set
+    -> no index based access
+    -> no duplicates
+4. Map
+    -> key-value pair
+    -> no index based access
+    -> no duplicates in keys
+    -> allows duplicates in values
+
+-------------------------------------------
+collection framework hierarchy
+-------------------------------------------
+
+top-level: interface
+
+    - Iterable
+        - Collection
+            - List
+                - ArrayList     - dynamic-array
+                - LinkedList    - doubly-linked-list
+                - Vector        - synchronized dynamic-array  ( bad in performance )
+            - Set
+                - HashSet       - hash-table based implementation  ( no order )
+                - LinkedHashSet - hash-table + DLL based implementation with insertion order
+                - TreeSet       - red-black tree based implementation ( sorted order )
+            - Queue
+                - PriorityQueue - heap based implementation ( priority order )
+                - Deque (Double Ended Queue)
+                    - ArrayDeque
+                    - LinkedList (also implements Deque)
+            - Map
+                - HashMap       - hash-table based implementation ( no order )
+                - LinkedHashMap - hash-table + DLL based implementation with insertion order
+                - TreeMap       - red-black tree based implementation ( sorted order )
+                - Hashtable     - synchronized hash-table based implementation ( bad in performance )
+
+https://levelup.gitconnected.com/java-collections-framework-class-hierarchy-latest-2024-51f9154f1f57
+
+
+
+
+
+
+

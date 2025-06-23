@@ -4,10 +4,11 @@
 ✅- Data-types
 ✅- OO concepts
 ✅- OO principles aka SOLID principles
-- OO design patterns  ( popular ones )
+✅- OO design patterns  ( popular ones )
+✅- how to handle exceptions
 
-- how to handle exceptions
 - Java collections framework
+
 - Java functional programming and streams
 - Java concurrency
 - Java I/O (Input/Output)
