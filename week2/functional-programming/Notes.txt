@@ -1,0 +1,26 @@
+
+
+
+style of programming
+-----------------------
+
+1. imperative programming
+
+    -> solving problems by describing a sequence of steps to achieve a desired outcome
+
+    problem:
+
+    -> intention and implementation are mixed
+    -> cant reuse implementation with different intentions
+
+ 2. declarative  programming
+
+    -> solving problems by describing the desired outcome without specifying the steps to achieve it
+
+    problem:
+
+    -> intention and implementation are separated
+    -> can reuse implementation with different intentions
+
+    how to do it:
+    way-1 : by primitive or object parameters
