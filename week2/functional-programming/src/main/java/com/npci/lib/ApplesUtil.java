@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public
-class ApplesUtil {
+public class ApplesUtil {
 
     public static List<Apple> filterApples(List<Apple> inventory, Predicate<Apple> obj) {
         List<Apple> filteredApples = new ArrayList<>();

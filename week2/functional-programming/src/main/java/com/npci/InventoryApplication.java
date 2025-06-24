@@ -1,6 +1,6 @@
 package com.npci;
 
-import com.npci.lib.AppleLibrary;
+import com.npci.lib.ApplesUtil;
 import com.npci.model.Apple;
 
 import java.util.ArrayList;
@@ -40,17 +40,17 @@ public class InventoryApplication {
 
         // Req-1: filter 'green' apples from inventory
         System.out.println(
-                AppleLibrary.filterApples(inventory, new GreenApplePredicate())
+                ApplesUtil.filterApples(inventory, new GreenApplePredicate())
         );
 
         // Req-2: filter 'red' apples from inventory
         System.out.println(
-                AppleLibrary.filterApples(inventory, new RedApplePredicate())
+                ApplesUtil.filterApples(inventory, new RedApplePredicate())
         );
 
         // Req-3: filter 'heavy weight' apples from inventory
         System.out.println(
-                AppleLibrary.filterApples(inventory, new HeavyApplePredicate())
+                ApplesUtil.filterApples(inventory, new HeavyApplePredicate())
         );
 
         System.out.println();
@@ -66,15 +66,15 @@ public class InventoryApplication {
 
         // (input) ->{}  --> Lambda expression
         System.out.println(
-                AppleLibrary.filterApples(inventory, (t) -> "green".equals(t.getColor()))
+                ApplesUtil.filterApples(inventory, (t) -> "green".equals(t.getColor()))
         );
         // Req-2: filter 'red' apples from inventory
         System.out.println(
-                AppleLibrary.filterApples(inventory, (t) -> "red".equals(t.getColor()))
+                ApplesUtil.filterApples(inventory, (t) -> "red".equals(t.getColor()))
         );
         // Req-3: filter 'heavy weight' apples from inventory
         System.out.println(
-                AppleLibrary.filterApples(inventory, (t) -> t.getWeight() > 150)
+                ApplesUtil.filterApples(inventory, (t) -> t.getWeight() > 150)
         );
 
     }

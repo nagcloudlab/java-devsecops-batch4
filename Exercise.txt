@@ -44,7 +44,6 @@ Library
 
 - filter transactions by account ID
 - filter transactions by type (credit or debit)
-- sort transactions by timestamp
 - calculate total amount for a specific account ID
 
 
