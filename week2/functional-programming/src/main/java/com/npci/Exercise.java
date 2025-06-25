@@ -30,5 +30,36 @@ public class Exercise {
         // Query 6: Update all transactions so that the traders from Milan are set to Cambridge.
         //----------------------------------------------------------
 
+
+        // Query 1
+        transactions
+                .stream()
+                .filter(t -> t.getYear() == 2011)
+                .sorted((t1, t2) -> Integer.compare(t1.getValue(), t2.getValue()))
+                .forEach(System.out::println);
+        // Query 2
+        transactions
+                .stream()
+                .map(t -> t.getTrader().getCity())
+                .distinct()
+                .forEach(System.out::println);
+        // Query 3
+        transactions
+                .stream()
+                .map(TraderTransaction::getTrader)
+                .filter(t -> "Cambridge".equals(t.getCity()))
+                .sorted((t1, t2) -> t1.getName().compareTo(t2.getName()))
+                .forEach(System.out::println);
+        // Query 5
+        boolean isTraderInMilan = transactions
+                .stream()
+                .anyMatch(t -> "Milan".equals(t.getTrader().getCity()));
+        System.out.println("Is there any trader based in Milan? " + isTraderInMilan);
+        // Query 6
+        transactions
+                .stream()
+                .filter(t -> "Milan".equals(t.getTrader().getCity()))
+                .forEach(t -> t.getTrader().setCity("Cambridge"));
+
     }
 }
