@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class Application {
+public class Why_We_Need_Lambda_Expressions {
 
     public static void main(String[] args) {
 

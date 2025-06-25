@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Exercise {
+public class Why_We_Need_Stream_API {
     public static void main(String[] args) {
 
         List<Dish> menu = Arrays.asList(
