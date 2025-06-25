@@ -19,42 +19,23 @@ public class Transaction {
         return transactionId;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
     public String getSenderAccount() {
         return senderAccount;
-    }
-
-    public void setSenderAccount(String senderAccount) {
-        this.senderAccount = senderAccount;
     }
 
     public String getReceiverAccount() {
         return receiverAccount;
     }
 
-    public void setReceiverAccount(String receiverAccount) {
-        this.receiverAccount = receiverAccount;
-    }
-
     public double getAmount() {
         return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
     }
 
     public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
+    @Override
     public String toString() {
         return "Transaction{" +
                 "transactionId='" + transactionId + '\'' +
