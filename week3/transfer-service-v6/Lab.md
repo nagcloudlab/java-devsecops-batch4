@@ -49,19 +49,25 @@ docker exec -it cassandra cqlsh
 # create keyspace and table
 
 ```sql
+
 CREATE KEYSPACE IF NOT EXISTS transfer_app
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
 
 USE transfer_app;
 
-CREATE TABLE transfer_history (
-  id uuid PRIMARY KEY,
-  fromaccount text,
-  toaccount text,
-  amount decimal,
-  timestamp timestamp
-);
 
-SELECT * FROM transfer_history;
+CREATE TABLE IF NOT EXISTS transfer_history_by_hour (
+    hour_bucket text,
+    timestamp timestamp,
+    transaction_id uuid,
+    from_account text,
+    to_account text,
+    amount decimal,
+    PRIMARY KEY ((hour_bucket), timestamp, transaction_id)
+) WITH CLUSTERING ORDER BY (timestamp DESC);
+
+SELECT * FROM transfer_history_by_hour WHERE hour_bucket = '2025-07-01-12';
+
+
 
 ```

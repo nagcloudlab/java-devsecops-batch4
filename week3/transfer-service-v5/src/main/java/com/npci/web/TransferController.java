@@ -6,6 +6,8 @@ import com.npci.exception.AccountBalanceException;
 import com.npci.exception.AccountNotFoundException;
 import com.npci.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -31,12 +33,12 @@ public class TransferController {
     )
     public String showTransferForm() {
         // This method will return the view name for the transfer form
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         System.out.println("-".repeat(50));
-        System.out.println("User: " + authentication.getName());
-        authentication.getAuthorities()
-                .forEach(authority -> System.out.println("Authority: " + authority.getAuthority()));
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Current User: " + authentication.getName());
+        authentication.getAuthorities().forEach(authority -> {
+            System.out.println("Authority: " + authority.getAuthority());
+        });
         System.out.println("-".repeat(50));
         return "transfer-form"; // Assuming you have a view named 'transfer-form.html'
     }
