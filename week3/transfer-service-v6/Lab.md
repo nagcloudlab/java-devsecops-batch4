@@ -52,10 +52,7 @@ docker exec -it cassandra cqlsh
 
 CREATE KEYSPACE IF NOT EXISTS transfer_app
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
-
 USE transfer_app;
-
-
 CREATE TABLE IF NOT EXISTS transfer_history_by_hour (
     hour_bucket text,
     timestamp timestamp,
