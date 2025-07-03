@@ -1,0 +1,56 @@
+
+
+
+
+how to design REST api
+------------------------
+
+Resource identification in requests:
+
+   /api/transfer
+   /api/accounts
+   /api/accounts/{accountId}
+
+
+Resource manipulation through representations
+
+   representation of resources: application/json
+
+    GET -> read resource payload
+    HEAD -> read resource metadata
+    OPTIONS -> read resource options ( what primitions are available )
+
+    POST -> create resource the unknown resource
+    PUT  -> to create or update known resource  ( whole resource)
+    PATCH -> to update known resource ( partial resource )
+    DELETE -> to delete resource
+
+ Self-descriptive messages: aka header  information
+
+   Content-Type: application/json
+   Accept: application/json
+   Location: /api/accounts/12345
+
+ Hypermedia as the engine of application state (HATEOAS)
+
+    https://en.wikipedia.org/wiki/REST
+
+ -------------------------------------------------------------------
+
+
+
+
+ POST /api/transfer
+{
+    "fromAccountId": "12345",
+    "toAccountId": "67890",
+    "amount": 100.00
+ }
+
+
+ 200 OK
+{
+    "transferId": "abc123",
+    "status": "completed",
+    "timestamp": "2023-10-01T12:00:00Z"
+ }

@@ -1,0 +1,64 @@
+
+
+
+
+dev-ops
+---------
+
+dev-ops practices
+---------------------
+
+    -> build automation
+    -> continuous integration
+    -> continuous delivery
+    -> continuous deployment
+    -> infrastructure as code
+    -> monitoring and logging
+    -> configuration management
+    -> containerization
+    -> orchestration
+    ......
+
+How to implement dev-ops practices
+--------------------------------------
+
+    2 ways
+
+    1. by tools
+        how to choose tools?
+         -> by features
+         -> by integration
+         -> by community support
+         -> by cost
+         -> by scalability
+         -> by security 
+         ...
+
+    2. by scripts     
+
+        -> python..
+        -> groovy
+
+        ...
+
+How to find all dev-ops tools ?
+--------------------------------------
+
+https://digital.ai/learn/devsecops-periodic-table/        
+
+
+------
+
+
+
+build automation for java
+------------------------------
+
+
+
+1. Maven  ( XML based )
+2. Gradle ( Groovy | Kotlin )
+3. SBT    ( scala )
+...
+
+---------------------------
