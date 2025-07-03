@@ -20,7 +20,7 @@ pipeline {
         stage('Static Code Analysis') {
             steps {
                 dir('week3/dev-ops/transfer-service') {
-                    sh "mvn sonar:sonar -Dsonar.projectKey=transfer-service -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqa_129a873e79f45ac95bde1296b36900946d5ce958"
+                    sh "./mvnw sonar:sonar -Dsonar.projectKey=transfer-service -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqa_129a873e79f45ac95bde1296b36900946d5ce958"
                 }
             }
         }
