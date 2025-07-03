@@ -9,6 +9,7 @@ dev-ops practices
 ---------------------
 
     -> build automation
+    -> test automation
     -> continuous integration
     -> continuous delivery
     -> continuous deployment
@@ -36,8 +37,9 @@ How to implement dev-ops practices
 
     2. by scripts     
 
-        -> python..
-        -> groovy
+        -> python scripts
+        -> groovy scripts
+        -> shell scripts
 
         ...
 
@@ -50,15 +52,39 @@ https://digital.ai/learn/devsecops-periodic-table/
 ------
 
 
-
+--------------------------
 build automation for java
 ------------------------------
 
+1. Maven  
 
-
-1. Maven  ( XML based )
-2. Gradle ( Groovy | Kotlin )
-3. SBT    ( scala )
-...
+ -> working pom.xml
+    -> dependencies
+    -> plugins
+        -> goals with phases
 
 ---------------------------
+test automation for java
+--------------------------
+
+  -> unit-testing
+  -> integration-testing
+  -> api-testing
+
+    testing
+        => Arrange
+        => Act
+        => Assert
+
+   Framework  : Junit
+   Mocking Lib: mockito
+   Api Testing: REST Assured
+
+   Junit + Mockito + REST assured
+
+---------------------------
+CI automation
+---------------------------
+
+- Jenkins
+

@@ -13,9 +13,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.startsWith;
 
 
-@SpringBootTest(
-        classes = {Application.class}
-)
 public class UpiTransferApiTest extends BaseTransferApiTest {
 
 
@@ -41,6 +38,7 @@ public class UpiTransferApiTest extends BaseTransferApiTest {
                 .body("status", equalTo("SUCCESS"))
                 .body("amount", equalTo(100.0f)) // for float/double use f
                 .body("fromAccountNumber", startsWith("1234567890"))
+                .body("toAccountNumber", startsWith("1234567890"))
                 .body("transactionId", isValidTransferId);
 
     }

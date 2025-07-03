@@ -3,6 +3,8 @@ package org.npci.service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.npci.exception.AccountBalanceException;
+import org.npci.exception.AccountNotFoundException;
 import org.npci.model.Account;
 import org.npci.repository.AccountRepository;
 
@@ -28,12 +30,15 @@ public class UpiTransferServiceUnitTest {
     @Test
     public void testInitiateTransfer_InvalidAccountNumber() {
         String fromAccountNumber = "invalidFromAccount";
-        String toAccountNumber = "invalidToAccount";
+        String toAccountNumber = "0987654321";
         double amount = 100.0;
         when(accountRepositoryMock.findByAccountNumber(fromAccountNumber)).thenReturn(Optional.empty());
-        when(accountRepositoryMock.findByAccountNumber(toAccountNumber)).thenReturn(Optional.empty());
+        Account toAccount = new Account(toAccountNumber, "Jane", 200.0);
 
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        when(accountRepositoryMock.findByAccountNumber(toAccountNumber)).thenReturn(Optional.empty());
+        when(accountRepositoryMock.findByAccountNumber(toAccountNumber)).thenReturn(Optional.of(toAccount));
+
+        AccountNotFoundException e = assertThrows(AccountNotFoundException.class, () -> {
             upiTransferService.initiateTransfer(fromAccountNumber, toAccountNumber, amount);
         });
         assertEquals("From account not found - " + fromAccountNumber, e.getMessage());
@@ -53,7 +58,7 @@ public class UpiTransferServiceUnitTest {
         when(accountRepositoryMock.findByAccountNumber(fromAccountNumber)).thenReturn(Optional.of(fromAccount));
         when(accountRepositoryMock.findByAccountNumber(toAccountNumber)).thenReturn(Optional.of(toAccount));
 
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        AccountBalanceException e = assertThrows(AccountBalanceException.class, () -> {
             upiTransferService.initiateTransfer(fromAccountNumber, toAccountNumber, amount);
         });
 
@@ -63,8 +68,8 @@ public class UpiTransferServiceUnitTest {
     // Successful transfer test
     @Test
     public void testInitiateTransfer_SuccessfulTransfer() {
-        String fromAccountNumber = "fromAccount";
-        String toAccountNumber = "toAccount";
+        String fromAccountNumber = "1234567890";
+        String toAccountNumber = "0987654321";
         double amount = 100.0;
 
         Account fromAccount = new Account(fromAccountNumber, "John", 200.0); // Sufficient balance

@@ -3,6 +3,8 @@ package org.npci.service;
 import org.junit.ClassRule;
 import org.junit.jupiter.api.*;
 import org.npci.Application;
+import org.npci.exception.AccountBalanceException;
+import org.npci.exception.AccountNotFoundException;
 import org.npci.model.Account;
 import org.npci.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +89,7 @@ public class UpiTransferServiceIntegrationTest {
         String fromAccountNumber = "invalidFromAccount";
         String toAccountNumber = "invalidToAccount";
         double amount = 100.0;
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        AccountNotFoundException e = assertThrows(AccountNotFoundException.class, () -> {
             upiTransferService.initiateTransfer(fromAccountNumber, toAccountNumber, amount);
         });
         assertEquals("From account not found - " + fromAccountNumber, e.getMessage());
@@ -101,7 +103,7 @@ public class UpiTransferServiceIntegrationTest {
         String toAccountNumber = "toAccount";
         double amount = 1000.0;
 
-        RuntimeException e = assertThrows(RuntimeException.class, () -> {
+        AccountBalanceException e = assertThrows(AccountBalanceException.class, () -> {
             upiTransferService.initiateTransfer(fromAccountNumber, toAccountNumber, amount);
         });
 
