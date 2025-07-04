@@ -13,13 +13,13 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.startsWith;
 
 
-public class UpiTransferApiTest extends BaseTransferApiTest {
+class UpiTransferApiTest extends BaseTransferApiTest {
 
 
     // Junit + Hamcrest + Rest Assured
     @Test
     @Disabled
-    public void transferMoneyTest() {
+     void transferMoneyTest() {
 
         String requestBody = """
                 {

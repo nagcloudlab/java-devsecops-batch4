@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 
 @Service
 public class UpiTransferService implements TransferService {
@@ -44,34 +43,5 @@ public class UpiTransferService implements TransferService {
         accountRepository.update(toAccount);
     }
 
-    // 🚨 Unused method
-    public void unusedMethod() {
-        System.out.println("This method is never used");
-    }
 
-    // 🚨 Logging sensitive data
-    public void logSensitiveInfo(String accountNumber, String pin) {
-        System.out.println("Logging account: " + accountNumber + " and PIN: " + pin);
-    }
-
-    // 🚨 Unchecked exception
-    public void riskyOperation() {
-        String val = null;
-        System.out.println(val.toLowerCase()); // NullPointerException risk
-    }
-
-    // 🚨 Deprecated API
-    @Deprecated
-    public Date getCurrentDate() {
-        return new Date();
-    }
-
-    // 🚨 Empty catch block
-    public void emptyCatchExample() {
-        try {
-            int x = 1 / 0;
-        } catch (Exception e) {
-            // intentionally left empty
-        }
-    }
 }
