@@ -1,6 +1,14 @@
 
 pipeline{
     agent any
+
+    environment {
+            SONAR_HOST_URL = 'http://localhost:9000'
+            SONAR_PROJECT_KEY = 'transfer-service'
+            // Set here if you want to override Maven default repo URL
+            // MAVEN_OPTS = '-Dmaven.repo.local=.m2/repository'
+    }
+
     stages{
        stage("Compile"){
          steps{
@@ -36,6 +44,15 @@ pipeline{
             }
         }
 
+//          stage('🚦Sonar Quality Gate Check') {
+//               steps {
+//                 timeout(time: 1, unit: 'MINUTES') {
+//                   waitForQualityGate abortPipeline: true
+//                 }
+//               }
+//          }
+
+
         stage("Package"){
          steps{
             dir("week3/dev-ops/transfer-service"){
@@ -43,6 +60,10 @@ pipeline{
             }
          }  
         }
+
+        // Byte code verification
+        // dependency scan
+
 
         stage('Deploy') {
             steps {
