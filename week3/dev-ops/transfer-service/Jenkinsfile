@@ -8,9 +8,7 @@ pipeline{
                 sh "./mvnw compile"
             }
          } 
-
         }
-
         stage("Test"){
          steps{
             dir("week3/dev-ops/transfer-service"){
@@ -18,13 +16,22 @@ pipeline{
             }
          }  
         }
-
-         stage("Package"){
+        stage("Package"){
          steps{
             dir("week3/dev-ops/transfer-service"){
                 sh "./mvnw package -DskipTests"
             }
          }  
+        }
+
+        stage('Deploy') {
+            steps {
+               withCredentials([file(credentialsId: 'nexus-cred-xml', variable: 'SETTINGS_XML')]) {
+                    dir('week3/dev-ops/transfer-service') {
+                        sh './mvnw deploy -DskipTests -s $SETTINGS_XML'
+                    }
+                }
+            }
         }
 
     }

@@ -130,4 +130,12 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Snapshots</name>
+            <url>http://4.247.130.20:8081/repository/maven-snapshots/</url>
+        </repository>
+    </distributionManagement>
+
 </project>
