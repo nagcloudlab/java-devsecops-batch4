@@ -81,6 +81,24 @@ pipeline {
             }
         }
 
+        stage("🕵️ Bytecode Scan (Find Security Bugs)") {
+            steps {
+                dir("week3/dev-ops/transfer-service") {
+                    sh './mvnw spotbugs:spotbugs'
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'week3/dev-ops/transfer-service/target/spotbugs.html', allowEmptyArchive: true
+                    publishHTML(target: [
+                        reportDir: 'week3/dev-ops/transfer-service/target',
+                        reportFiles: 'spotbugs.html',
+                        reportName: 'Find Security Bugs Report'
+                    ])
+                }
+            }
+        }
+
         stage("🚀 Deploy") {
             steps {
                 withCredentials([file(credentialsId: 'nexus-cred-xml', variable: 'SETTINGS_XML')]) {
