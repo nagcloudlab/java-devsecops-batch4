@@ -21,6 +21,11 @@ pipeline {
                     sh "./mvnw test"
                 }
             }
+            post {
+                always {
+                    junit "week3/dev-ops/transfer-service/target/surefire-reports/*.xml"
+                }
+            }
         }
 
         stage("🔐 SonarQube Static Code Scan") {
@@ -67,8 +72,7 @@ pipeline {
             post {
                 always {
                     archiveArtifacts artifacts: 'week3/dev-ops/transfer-service/target/dependency-check-report.html', allowEmptyArchive: true
-                    step([
-                        $class: 'HtmlPublisher',
+                    publishHTML(target: [
                         reportDir: 'week3/dev-ops/transfer-service/target',
                         reportFiles: 'dependency-check-report.html',
                         reportName: 'OWASP Dependency Report'
