@@ -40,11 +40,11 @@
         </dependency>
 
         <!-- Database -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+       <dependency>-->
+           <groupId>org.postgresql</groupId>
+           <artifactId>postgresql</artifactId>
+           <scope>runtime</scope>
+      </dependency>
 
         <!-- Configuration Metadata -->
         <dependency>
@@ -85,6 +85,11 @@
             <version>5.5.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -106,7 +111,6 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-
             <!-- Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -120,14 +124,12 @@
                     </excludes>
                 </configuration>
             </plugin>
-
             <!-- SonarQube -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.10.0.2594</version>
             </plugin>
-
             <!-- JaCoCo Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -147,7 +149,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <!-- OWASP Dependency Check -->
             <plugin>
                 <groupId>org.owasp</groupId>
@@ -166,7 +167,7 @@
                     <outputDirectory>${project.build.directory}</outputDirectory>
                 </configuration>
             </plugin>
-            
+            <!-- SpotBugs -->
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
@@ -193,6 +194,7 @@
                     </execution>
                 </executions>
             </plugin>
+            
         </plugins>
     </build>
 

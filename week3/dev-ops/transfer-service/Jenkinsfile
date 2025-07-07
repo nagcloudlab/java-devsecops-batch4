@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+        
         stage("📦 Compile") {
             steps {
                 dir("week3/dev-ops/transfer-service") {
@@ -98,6 +99,23 @@ pipeline {
                 }
             }
         }
+
+        // stage("🔐 Checkmarx SAST Scan") {
+        //     steps {
+        //         script {
+        //         step([$class: 'CxScanBuilder',
+        //             credentialsId: 'checkmarx-creds',
+        //             serverUrl: 'https://your-checkmarx-server',
+        //             projectName: 'transfer-service',
+        //             sastEnabled: true,
+        //             vulnerabilityThresholdEnabled: true,
+        //             vulnerabilityThresholdResult: 'FAILURE',
+        //             waitForResultsEnabled: true
+        //         ])
+        //         }
+        //     }
+        // }
+
 
         stage("🚀 Deploy") {
             steps {
