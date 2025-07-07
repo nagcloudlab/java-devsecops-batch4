@@ -119,6 +119,7 @@ pipeline {
 
         stage("🚀 Deploy") {
             steps {
+                input message: 'Do you want to deploy the transfer-service?', ok: 'Deploy'
                 withCredentials([file(credentialsId: 'nexus-cred-xml', variable: 'SETTINGS_XML')]) {
                     dir('week3/dev-ops/transfer-service') {
                         sh './mvnw deploy -DskipTests -s $SETTINGS_XML'
